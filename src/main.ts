@@ -1,14 +1,13 @@
-import './assets/main.css'
+import App from "@/App.vue";
+import { loadFonts } from "@/plugins/webfontloader";
+import router from "@/router";
+import { createPinia } from "pinia";
+import "primeicons/primeicons.css";
+import PrimeVue from "primevue/config";
+import "primevue/resources/primevue.min.css";
+import "primevue/resources/themes/lara-dark-teal/theme.css";
+import { createApp } from "vue";
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+loadFonts();
 
-import App from './App.vue'
-import router from './router'
-
-const app = createApp(App)
-
-app.use(createPinia())
-app.use(router)
-
-app.mount('#app')
+createApp(App).use(PrimeVue).use(router).use(createPinia()).mount("#app");
